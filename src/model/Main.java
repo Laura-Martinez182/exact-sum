@@ -21,6 +21,8 @@ public class Main {
 	static ArrayList<String[]> generalData = new ArrayList<String[]>(); 
 
 	public static void main(String[] args) throws IOException {
+		
+		
 
 		objReader = new BufferedReader(new InputStreamReader(System.in));
 		objWriter = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -45,12 +47,13 @@ public class Main {
 
 			line = objReader.readLine();
 			line = objReader.readLine();
-			pass ++;
+			pass++;
 			
 			generalData.add(data);
 		}
 		
 		objReader.close();
+		
 		
 		for(int i = 0; i < pass; i++) {
 			
@@ -67,12 +70,13 @@ public class Main {
 			
 			addSorted(eachPrice);
 			difference(eachPrice, money);
-			objWriter.write("Peter should buy books whose prices are " +book1+ " and " +book2);
+			objWriter.write("Peter should buy books whose prices are " +book1+ " and " +book2+".".trim());
 			objWriter.write("\n\n");
-			objWriter.flush();
+			
 			
 		}
 		
+		objWriter.flush();
 		objWriter.close();
 		 
 	}
@@ -105,7 +109,7 @@ public class Main {
 	}
 
 
-	public static void difference(int[] eachPrice, int money) {
+	public static void difference(int[] eachPrice, int money)  throws IOException {
 		int searchValue = 0;
 		int count = 0;
 		for(int i = 0; i<eachPrice.length; i++) {
@@ -113,8 +117,8 @@ public class Main {
 			int pos = binarySearch(eachPrice, searchValue);
 			if (pos >= 0) {
 				int localDifference = Math.abs(eachPrice[i] - eachPrice[pos]);
-
-				if(localDifference < minimalDifference || count==0) {
+					
+				if((localDifference < minimalDifference || count==0) && i!=pos) {
 					book1 = eachPrice[i];
 					book2 = eachPrice[pos];
 					minimalDifference = localDifference;
