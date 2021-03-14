@@ -1,4 +1,3 @@
-package model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -21,7 +20,6 @@ public class Main {
 	static ArrayList<String[]> generalData = new ArrayList<String[]>(); 
 
 	public static void main(String[] args) throws IOException {
-		
 		
 
 		objReader = new BufferedReader(new InputStreamReader(System.in));
@@ -46,9 +44,12 @@ public class Main {
 			data[2] = line;
 
 			line = objReader.readLine();
-			line = objReader.readLine();
-			pass++;
 			
+			if (line!=null) {
+			line = objReader.readLine();
+			}
+			
+			pass++;
 			generalData.add(data);
 		}
 		
@@ -70,7 +71,7 @@ public class Main {
 			
 			addSorted(eachPrice);
 			difference(eachPrice, money);
-			objWriter.write("Peter should buy books whose prices are " +book1+ " and " +book2+".".trim());
+			objWriter.write("Peter should buy books whose prices are " +book1+ " and " +book2+".");
 			objWriter.write("\n\n");
 			
 			
@@ -131,5 +132,3 @@ public class Main {
 
 	}
 }
-
-
