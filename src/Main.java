@@ -71,7 +71,7 @@ public class Main {
 			
 			addSorted(eachPrice);
 			difference(eachPrice, money);
-			objWriter.write("Peter should buy books whose prices are " +book1+ " and " +book2+".");
+			objWriter.write("Peter should buy books whose prices are " +book1+ " and " +book2+".".trim());
 			objWriter.write("\n\n");
 			
 			
